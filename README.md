@@ -1,17 +1,17 @@
-# MyPackageName
+# Localization Lite
 
 A lightweight and simple localization package for Flutter that allows you to easily manage translations using JSON files.
 
 ## Features
 
 - Easy setup with JSON language files.
-- Lightweight and fast, designed for quick translations.
+- Lightweight and fast.
 - Support for multiple languages and regions (e.g., `en`, `en_us`).
 
 ## Getting Started
 
 1. **Setup**: Create a new folder called `localization` in your project's `assets` directory.
-2. **Add Language Files**: In the `localization` folder, add JSON files for each language you want to support (e.g., `en.json` or `en_us.json`).
+2. **Add Language Files**: In the `localization` folder, add JSON files for each language you want to support (e.g., `en.json` , `ar.json`).
 3. **Configure Assets**: Add the localization files to your `pubspec.yaml`:
    ```yaml
    dependencies:
@@ -24,7 +24,14 @@ A lightweight and simple localization package for Flutter that allows you to eas
 ## Usage
 1. Initialization: Initialize the translation system in your `main.dart` file:
  ```dart
+    await WidgetsFlutterBinding.ensureInitialized();
     await Translation.init(defaultLang: "en");
+ ```
+ > note if you use country code the init becomes like this
+ dart` file:
+ ```dart
+    await WidgetsFlutterBinding.ensureInitialized();
+    await Translation.init(defaultLang: "en",withCountryCode: true);
  ```
 2. Access Translations: Use the `Translation` class to retrieve translated strings:
 ```dart
