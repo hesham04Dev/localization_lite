@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:localization_lite/translate.dart';
-void main() async{ 
+
+void main() async {
   await WidgetsFlutterBinding.ensureInitialized();
   await Translate.init(defaultLangCode: "en");
   runApp(
-      MaterialApp(
-        theme: ThemeData(
-          primaryColor: Colors.blue,
-        ),
-        home: MyApp(),
+    MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.blue,
       ),
-    );}
+      home: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -21,4 +23,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-  }
+}
