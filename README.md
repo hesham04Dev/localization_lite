@@ -6,7 +6,7 @@ A lightweight and simple localization package for Flutter that allows you to eas
 
 - 📝 Easy setup with JSON language files.
 - ⚡ Lightweight and fast.
-- 🌍 Support for multiple languages and regions (e.g., `en`, `en_us`).
+- 🌍 Support for multiple languages without regions for more simplicity (e.g., `en`, `ar` ... ).
 
 ## 🚀 Getting Started
 
@@ -27,18 +27,26 @@ A lightweight and simple localization package for Flutter that allows you to eas
     await WidgetsFlutterBinding.ensureInitialized();
     await Translation.init(defaultLang: "en");
  ```
- > 📝 note if you use country code the init becomes like this
+ > 📝 note You can also add a custom `path` to the json by adding the path argument to the `init` fn. But when add custom path don't forget to add it to the `pubspec.yaml
  dart` file:
  ```dart
     await WidgetsFlutterBinding.ensureInitialized();
-    await Translation.init(defaultLang: "en",withCountryCode: true);
+    await Translation.init(defaultLang: "en",path: "myCustomPath");
  ```
- > 📝 You can also add a custom `path` to the json by adding the path argument to the `init` fn. But when add custom path don't forget to add it to the `pubspec.yaml`
+ ```yaml
+  flutter:
+     assets:
+       - myCustomPath/
+ ```
+ 
 2. Access Translations: Use the `Translation` class to retrieve translated strings:
 ```dart
 String greeting = Translation("greetingKey").toString();
 ```
-> 🚀 You can also use `tr(key)` fn to translate
+or
+```dart
+String greeting = tr("greetingKey");
+```
 ## 💡Example
 Check out the `/example` folder for a complete example showing how to set up and use the package.
 ## 📬 Additional Information

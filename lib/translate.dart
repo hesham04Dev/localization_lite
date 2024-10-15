@@ -9,9 +9,6 @@ class Translate {
   /// Indicates if the default language is being used.
   static bool isDefaultLang = false;
 
-  /// Whether to use the language code with the country code (e.g., 'en_US').
-  static late bool _withCountryCode;
-
   /// The default language code to use if the specific language file is not found.
   static late String _defaultLangCode;
 
@@ -24,15 +21,12 @@ class Translate {
   /// Initializes the translation system with the specified default language code.
   ///
   /// [defaultLangCode] is the fallback language code if the system's language file isn't available.
-  /// [withCountryCode] specifies if the language code should include the country code (e.g., 'en_US').
   /// [path] is the custom path for the localization files (optional).
   static Future<void> init({
     required String defaultLangCode,
-    bool withCountryCode = false,
     String? path,
   }) async {
     _defaultLangCode = defaultLangCode;
-    _withCountryCode = withCountryCode;
     _localizationPath = path ?? _localizationPath;
     _langCode = _getLangCode();
     String jsonString = await _getJsonString();
@@ -60,7 +54,7 @@ class Translate {
   /// If [withCountryCode] is false, only the language code (e.g., 'en') is used.
   static String _getLangCode() {
     var langCode = Platform.localeName;
-    if (langCode.length > 2 && !_withCountryCode) {
+    if (langCode.length > 2) {
       langCode = langCode.substring(1, 3);
     }
     return langCode;

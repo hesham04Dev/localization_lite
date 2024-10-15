@@ -1,3 +1,9 @@
+## 1.0.5
+* removing the country region for more simplicity
+
+## 1.0.4
+* adding icons to the readme
+
 ## 1.0.3
 * adding dart documentation 
 
