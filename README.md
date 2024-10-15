@@ -1,6 +1,7 @@
-# Localization Lite
+# <img src="./screenshots/logo.png" alt="logo" width="20px"> Localization Lite
 
 A lightweight and simple localization package for Flutter that allows you to easily manage translations using JSON files.
+
 
 ## ✨ Features
 

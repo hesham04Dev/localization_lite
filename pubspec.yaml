@@ -1,6 +1,6 @@
 name: localization_lite
 description: "A lightweight and easy-to-use package for multilingual support using JSON files. Simplifies adding localization in Flutter apps with minimal setup and integration"
-version: 1.0.5
+version: 1.0.6
 homepage: https://github.com/hesham04Dev/localization_lite
 
 environment:
@@ -15,3 +15,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter:
+
+screenshots:
+  - description: The localization lite logo.
+    path: screenshots/logo.png

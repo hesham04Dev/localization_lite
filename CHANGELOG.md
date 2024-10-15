@@ -1,3 +1,6 @@
+## 1.0.6
+* adding logo for the package
+
 ## 1.0.5
 * removing the country region for more simplicity
 
