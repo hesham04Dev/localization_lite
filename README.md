@@ -33,7 +33,7 @@ A lightweight and simple localization package for Flutter that allows you to eas
     await WidgetsFlutterBinding.ensureInitialized();
     await Translation.init(defaultLang: "en",withCountryCode: true);
  ```
- > Also you can add a custom path to the json by adding the path argument to the init but when add custom path don't forget to add it to the pubspec.yaml
+ > Also you can add a custom `path` to the json by adding the path argument to the init fn. But when add custom path don't forget to add it to the `pubspec.yaml`
 2. Access Translations: Use the `Translation` class to retrieve translated strings:
 ```dart
 String greeting = Translation("greetingKey").toString();
