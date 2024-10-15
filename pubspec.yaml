@@ -1,6 +1,6 @@
 name: localization_lite
-description: "A simple package for localization by using (json)."
-version: 1.0.2
+description: "A lightweight and easy-to-use package for multilingual support using JSON files. Simplifies adding localization in Flutter apps with minimal setup and integration"
+version: 1.0.3
 homepage: https://github.com/hesham04Dev/localization_lite
 
 environment:
