@@ -1,3 +1,6 @@
+## 1.0.7 
+* Correcting the default language's persistent visibility
+
 ## 1.0.6
 * adding logo for the package
 

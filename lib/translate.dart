@@ -55,7 +55,7 @@ class Translate {
   static String _getLangCode() {
     var langCode = Platform.localeName;
     if (langCode.length > 2) {
-      langCode = langCode.substring(1, 3);
+      langCode = langCode.substring(0, 2);
     }
     return langCode;
   }

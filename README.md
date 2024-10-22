@@ -1,4 +1,4 @@
-# <img src="./screenshots/logo.png" alt="logo" width="20px"> Localization Lite
+# <img src="https://raw.githubusercontent.com/hesham04Dev/localization_lite/refs/heads/main/screenshots/logo.png" alt="logo" width="20px"> Localization Lite
 
 A lightweight and simple localization package for Flutter that allows you to easily manage translations using JSON files.
 
