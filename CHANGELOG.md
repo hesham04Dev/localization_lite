@@ -1,3 +1,8 @@
+## 1.0.8
+* fixing error in the code that prevent the other language from being used.
+* add a debug info if the lang not found
+*update the example 
+
 ## 1.0.7 
 * Correcting the default language's persistent visibility
 

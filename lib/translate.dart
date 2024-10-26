@@ -39,10 +39,13 @@ class Translate {
   ///
   /// If the file for the current language code does not exist, it falls back to the default language file.
   static Future<String> _getJsonString() async {
-    if (await File(_localizationPath + _langCode).exists()) {
+    if (await File(_localizationPath + _langCode+ ".json").exists()) {
       return await rootBundle
           .loadString(_localizationPath + _langCode + ".json");
     } else {
+      if(kDebugMode){
+        print("localization_lite: warning $_langCode is not defined so we use $_defaultLangCode");
+      }
       isDefaultLang = true;
       return await rootBundle
           .loadString(_localizationPath + _defaultLangCode + ".json");

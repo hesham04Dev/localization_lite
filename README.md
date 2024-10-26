@@ -5,6 +5,7 @@ A lightweight and simple localization package for Flutter that allows you to eas
 
 ## ✨ Features
 
+- 🔎 Automatically detects and applies device language settings
 - 📝 Easy setup with JSON language files.
 - ⚡ Lightweight and fast.
 - 🌍 Support for multiple languages without regions for more simplicity (e.g., `en`, `ar` ... ).

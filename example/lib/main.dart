@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(Translate("hello_world").toString()),
+        child: Text(tr("hello_world") + " or " + Translate("hello_world").toString()),
       ),
     );
   }
