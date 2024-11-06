@@ -1,2 +1,3 @@
 library localization_lite;
-/// Automatically detects and applies device language settings 
+
+export 'simple_localization.dart';

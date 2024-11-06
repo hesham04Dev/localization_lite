@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 /// A class for handling translations in a Flutter application using JSON files.
 /// This class loads language files and returns translations based on the current locale.
 class Translate {
+   /// Indicates if debug mode is active.
+  /// When enabled, warning messages will be printed for missing translations or issues.
+  static bool _isDebug = false;
+
   /// Indicates if the default language is being used.
   static bool isDefaultLang = false;
 
@@ -22,12 +25,15 @@ class Translate {
   ///
   /// [defaultLangCode] is the fallback language code if the system's language file isn't available.
   /// [path] is the custom path for the localization files (optional).
+  /// /// [isDebug] enables or disables debug mode (optional).
   static Future<void> init({
     required String defaultLangCode,
     String? path,
+    bool? isDebug,
   }) async {
     _defaultLangCode = defaultLangCode;
     _localizationPath = path ?? _localizationPath;
+    _isDebug = isDebug ?? _isDebug;
     _langCode = _getLangCode();
     String jsonString = await _getJsonString();
 
@@ -39,12 +45,13 @@ class Translate {
   ///
   /// If the file for the current language code does not exist, it falls back to the default language file.
   static Future<String> _getJsonString() async {
-    if (await File(_localizationPath + _langCode+ ".json").exists()) {
+    if (await File(_localizationPath + _langCode + ".json").exists()) {
       return await rootBundle
           .loadString(_localizationPath + _langCode + ".json");
     } else {
-      if(kDebugMode){
-        print("localization_lite: warning $_langCode is not defined so we use $_defaultLangCode");
+      if (_isDebug) {
+        print(
+            "localization_lite: warning $_langCode is not defined so we use $_defaultLangCode");
       }
       isDefaultLang = true;
       return await rootBundle
@@ -80,7 +87,7 @@ class Translate {
   String toString() {
     String result = json[key]?.trim() ?? "";
     if (result.isEmpty) {
-      if (kDebugMode) {
+      if (_isDebug) {
         print(
             "localization_lite: warning ${key} is not defined in ${_langCode}");
       }

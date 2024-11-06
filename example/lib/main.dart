@@ -3,7 +3,7 @@ import 'package:localization_lite/translate.dart';
 
 void main() async {
   await WidgetsFlutterBinding.ensureInitialized();
-  await Translate.init(defaultLangCode: "en");
+  await Translate.init(defaultLangCode: "ar");
   runApp(
     MaterialApp(
       theme: ThemeData(
@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(tr("hello_world") + " or " + Translate("hello_world").toString()),
+        child: Text(
+            tr("hello_world") + " or " + Translate("hello_world").toString()),
       ),
     );
   }

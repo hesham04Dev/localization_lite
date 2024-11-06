@@ -1,3 +1,9 @@
+## 1.0.10
+* make the warning messages optional 
+
+## 1.0.9 
+* improve the package score
+
 ## 1.0.8
 * fixing error in the code that prevent the other language from being used.
 * add a debug info if the lang not found
