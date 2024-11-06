@@ -1,3 +1,6 @@
+## 1.0.11
+* fix translation bug in windows
+
 ## 1.0.10
 * make the warning messages optional 
 

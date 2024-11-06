@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 /// A class for handling translations in a Flutter application using JSON files.
 /// This class loads language files and returns translations based on the current locale.
 class Translate {
-   /// Indicates if debug mode is active.
+  /// Indicates if debug mode is active.
   /// When enabled, warning messages will be printed for missing translations or issues.
   static bool _isDebug = false;
 
@@ -45,10 +45,10 @@ class Translate {
   ///
   /// If the file for the current language code does not exist, it falls back to the default language file.
   static Future<String> _getJsonString() async {
-    if (await File(_localizationPath + _langCode + ".json").exists()) {
+    try {
       return await rootBundle
           .loadString(_localizationPath + _langCode + ".json");
-    } else {
+    } catch (e) {
       if (_isDebug) {
         print(
             "localization_lite: warning $_langCode is not defined so we use $_defaultLangCode");
