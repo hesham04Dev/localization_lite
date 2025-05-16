@@ -53,3 +53,15 @@ String greeting = tr("greetingKey");
 Check out the `/example` folder for a complete example showing how to set up and use the package.
 ## 📬 Additional Information
 For more information on contributing, filing issues, or requesting new features, please check the [GitHub repository](https://github.com/hesham04Dev/localization_lite). Contributions are welcome, and any feedback or improvements are appreciated!
+
+
+
+<!-- update md add 
+to view lang Translate.supportedLangs (need supportedlang.json file)
+
+how to add new lang in terminal type ` dart run simple_localization:add_lang code`
+how to init old project to work with supported lang `dart run simple_localization:init`
+
+add to select custom lang update the code and add Translate.setLang(code); if faild it set the default lang
+
+ -->
