@@ -1,5 +1,6 @@
 {
-  "home": "",
-  "menu": "",
-  "key": ""
+  "home": "Home",
+  "menu": "Menu",
+  "package": "Package",
+  "test_dd": "Test DD"
 }

@@ -6,9 +6,10 @@ Instructions:
 - Translate and fill missing values based on the keys and languages given.
 - Do not add any new languages or keys.
 - If unsure of a translation, leave the value as an empty string "".
-- Return the completed JSON structure directly as a plain text string, not JSON-encoded.
 
+- please dont return more than 1 json in the same time
 ''';
+// - Return the completed JSON structure directly as a plain text string, not JSON-encoded.
 const String kCommonKeyValuesExample = '''
 Example:
 Input:  

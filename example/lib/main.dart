@@ -3,7 +3,9 @@ import 'package:localization_lite/simple_localization.dart';
 
 void main() async {
    WidgetsFlutterBinding.ensureInitialized();
-  await Translate.init(defaultLangCode: "ar",service:Gemini(apiKey: "AIzaSyABCTkwaZfq4i4qovWKwFrmfFzO467teiA") /*GatherKeys()*/,isDevMode: true);
+  await Translate.init(defaultLangCode: "ar",service:Gemini(apiKey: "AIzaSyABCTkwaZfq4i4qovWKwFrmfFzO467teiA")/* GatherKeys()*/,isDevMode: true);
+  await Translate.setLang("tr");
+  
   runApp(
     MaterialApp(
       theme: ThemeData(
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text(
-            tr("home") + " or " + Translate("menu").toString()),
+            tr("test") + " or " + Translate("package").toString()),
       ),
     );
   }

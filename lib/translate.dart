@@ -51,13 +51,15 @@ class Translate {
     _localizationPath = path ?? _localizationPath;
     _isDevMode = isDevMode ?? _isDevMode;
     _langCode = _getLangCode();
-    _supportedLangs = await _getSupportedLangs();
+     await _getSupportedLangs();
     // _supportedLangs = ["en"];
     String jsonString = await _getJsonString();
-    _service = service;
+
+    
     print("service is :${_service}");
     print("_localizationPath is :${_localizationPath}");
-    if(_isDevMode){
+    if(_isDevMode && true){
+      _service = service;
           await service?.init();
     }
 
@@ -65,21 +67,25 @@ class Translate {
     json = {};
     json.addAll(jsonDecode(jsonString));
     // json = {"en":{"menu_33":"www"}, "ar":{"menu_33":"dd"}};
-    print(supportedLangs);
-    print("supported langs");
+    // print(supportedLangs);
+    // print("supported langs");
   }
 
   /// Loads the JSON string from the appropriate file based on the language code.
   ///
   /// If the file for the current language code does not exist, it falls back to the default language file.
-  static Future<String> _getJsonString() async {
+  static Future<String> _getJsonString([String? langCode]) async {
+    langCode ??= _langCode;
     try {
+      print("test langCode :$langCode");
       return await rootBundle
-          .loadString(_localizationPath + _langCode + ".json");
+          .loadString(_localizationPath + langCode + ".json");
     } catch (e) {
+
       if (_isDevMode) {
+        print(langCode);
         print(
-            "localization_lite: warning $_langCode is not defined so we use $_defaultLangCode");
+            "localization_lite: warning $langCode is not defined so we use $_defaultLangCode");
       }
       isDefaultLang = true;
       return await rootBundle
@@ -101,21 +107,25 @@ class Translate {
   /// The map containing all loaded translations.
   static late Map<String, dynamic> json;
 
-  static Future<List<String>> _getSupportedLangs() async {
+  static Future _getSupportedLangs() async {
     try {
+      print("in getting");
+      print("path is ${Translate.localizationPath}supported_languages.json");
+        
       var fileData = await rootBundle
           .loadString('${Translate.localizationPath}supported_languages.json');
           var decodedData = jsonDecode(fileData);
-      print(
-          "localization_lite: supported langs are: ${decodedData?["langs"]}");
+
+      // print(
+          // "localization_lite: supported langs are: ${decodedData?["langs"]}");
           // print (jsonDecode(fileData));
           // return ["en","es"];
-      return jsonDecode(fileData)?["langs"] ?? [Translate.defaultLangCode];
+          _supportedLangs =  List<String>.from(decodedData?["langs"] ?? [Translate.defaultLangCode]); 
     } catch (e) {
-      print("localization_lite: supported_languages.json not found");
+      print("localization_lite: supported_languages.json not found $e");
       print(
           "localization_lite: supported_languages = ${Translate.defaultLangCode}");
-      return [Translate.defaultLangCode];
+      _supportedLangs =  [Translate.defaultLangCode];
     }
   }
 
@@ -126,6 +136,7 @@ class Translate {
   @override
   String toString() {
     String result = json[key]?.trim() ?? "";
+    print(result);
     if (result.isEmpty) {
       if (_isDevMode) {
         if (_service != null) {
@@ -140,6 +151,12 @@ class Translate {
     }
     return result;
   }
+
+  static setLang(langCode) async{
+    var decodedResult = jsonDecode(await _getJsonString(langCode));
+    json = decodedResult;
+  }
+
 }
 
 /// A shorthand function for accessing translations.
